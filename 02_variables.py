@@ -13,3 +13,11 @@ print(segona_variable_float)
 
 tercera_variabla_int = 3
 print(tercera_variabla_int)
+
+# Concatenació
+quarta_variable = "Carmels"
+cinquena_variable = "Xato"
+print("Si ets de Vilanova, segur que has escoltat parlar dels " + quarta_variable + " i del " + cinquena_variable)
+
+# Una altra manera de concatenar: formatted strings
+print(f'Si ets de Vilanova, segur que has escoltat parlar dels {quarta_variable} i del {cinquena_variable}')
