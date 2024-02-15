@@ -1,21 +1,25 @@
-# method to implement the atbash cypher
+# La xifra atbash és un tipus de xifratge que es basa en la substitució de lletres. La substitució es fa de la següent manera:
+# La primera lletra de l'alfabet és substitueix per l'última, la segona per la penúltima, i així successivament.
 
 def atbash_cypher(text):
-    # create a dictionary with the atbash cypher
-    atbash_dict = {
-        'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v', 'f': 'u', 'g': 't', 'h': 's', 'i': 'r', 'j': 'q', 'k': 'p',
-        'l': 'o', 'm': 'n', 'n': 'm', 'o': 'l', 'p': 'k', 'q': 'j', 'r': 'i', 's': 'h', 't': 'g', 'u': 'f', 'v': 'e',
-        'w': 'd', 'x': 'c', 'y': 'b', 'z': 'a'
-    }
-    # create a list to store the cyphered text
-    cyphered_text = []
+
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    alfabet_reves = 'zyxwvutsrqponmlkjihgfedcba'
+
+    # generem una llista per a la sortida
+    text_xifrat = []
     # iterate over the text
-    for letter in text:
-        # if the letter is in the dictionary, add the cyphered letter to the list
-        if letter in atbash_dict:
-            cyphered_text.append(atbash_dict[letter])
-        # if the letter is not in the dictionary, add the letter to the list
+    for lletra in text:
+        # si la lletra és a l'alfabet, la substituïm
+        if lletra in alfabet:
+            lletra_xifrada = alfabet_reves[alfabet.index(lletra)]
+            text_xifrat.append(lletra_xifrada)
+        # si no, la deixem tal com està
         else:
-            cyphered_text.append(letter)
-    # join the list into a string
-    return ''.join(cyphered_text)
+            text_xifrat.append(lletra)
+    # s'ha generat una llista, la convertim en text
+    return ''.join(text_xifrat)
+
+# provem la funció
+input_text = input("Introdueixi el text a xifrar\n")
+print(f'El text xifrat és: {atbash_cypher(input_text)}')
